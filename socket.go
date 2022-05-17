@@ -5,6 +5,7 @@ import (
 	"errors"
 	"net/http"
 	"strconv"
+	"time"
 
 	"github.com/gorilla/websocket"
 	"github.com/mitchellh/mapstructure"
@@ -58,8 +59,22 @@ func (s *Socket) Init() (err error) {
 
 	s.isClosed = false
 	go s.connectionLoop()
-
+	go s.keepAlive()
 	return
+}
+
+func (s *Socket) keepAlive() {
+
+	ticker := time.NewTicker(3 * time.Second)
+	defer ticker.Stop()
+
+	for {
+		<-ticker.C
+		if err := s.conn.WriteControl(websocket.PingMessage, []byte{}, time.Now().Add(3*time.Second)); err != nil {
+			s.onError(err, SendKeepAliveMessageErrorContext)
+			return
+		}
+	}
 }
 
 // Close ...
