@@ -7,7 +7,7 @@ Inspired by https://github.com/imxeno/tradingview-scraper, I decided to create m
 
 ## Installation
 ```
-https://github.com/canhlinh/tradingview-scraper
+go get github.com/canhlinh/tradingview-scraper
 ```
 
 ## How to use
