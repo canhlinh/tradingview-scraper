@@ -1,4 +1,4 @@
-module github.com/canhlinh/tradingview-scrape
+module github.com/canhlinh/tradingview-scraper
 
 go 1.16
 
