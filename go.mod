@@ -1,4 +1,4 @@
-module github.com/canhlinh/tradingview-scraper
+module github.com/canhlinh/tradingview-scraper/v2
 
 go 1.17
 
