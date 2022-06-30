@@ -134,7 +134,7 @@ func (s *Socket) sendConnectionSetupMessages() (err error) {
 	messages := []*SocketMessage{
 		getSocketMessage("set_auth_token", []string{"unauthorized_user_token"}),
 		getSocketMessage("quote_create_session", []string{s.sessionID}),
-		getSocketMessage("quote_set_fields", []string{s.sessionID, "lp", "volume", "bid", "ask"}),
+		getSocketMessage("quote_set_fields", []string{s.sessionID, "lp", "lp_time", "volume", "bid", "ask"}),
 	}
 
 	for _, msg := range messages {
