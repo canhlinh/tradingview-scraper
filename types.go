@@ -23,10 +23,11 @@ type QuoteMessage struct {
 
 // QuoteData ...
 type QuoteData struct {
-	Price  *float64 `mapstructure:"lp"`
-	Volume *float64 `mapstructure:"volume"`
-	Bid    *float64 `mapstructure:"bid"`
-	Ask    *float64 `mapstructure:"ask"`
+	Timestamp *int64   `mapstructure:"lp_time"`
+	Price     *float64 `mapstructure:"lp"`
+	Volume    *float64 `mapstructure:"volume"`
+	Bid       *float64 `mapstructure:"bid"`
+	Ask       *float64 `mapstructure:"ask"`
 }
 
 // Flags ...
